@@ -22,8 +22,8 @@ To run this project you will need:
 
 ## Installation
 ```bash
-git clone https://github.com/pixelrogueart/multiplayer-game-godot-4.1.git
-cd multiplayer-game-godot-4.1
+git clone https://github.com/pixelrogueart/websocket-dedicated-server.git
+cd websocket-dedicated-server
 ```
 
 ## Projects
