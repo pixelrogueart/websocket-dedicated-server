@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkywhcuj467xh"]
+
+[ext_resource type="Script" path="res://global/network/server/Server.gd" id="1_nnpct"]
+
+[node name="Server" type="Node"]
+script = ExtResource("1_nnpct")
+
+[node name="Timer" type="Timer" parent="."]

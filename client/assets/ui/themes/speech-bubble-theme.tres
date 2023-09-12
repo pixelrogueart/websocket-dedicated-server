@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dictf83vmdo2"]
+
+[ext_resource type="FontFile" uid="uid://bdyfhb6uhgjww" path="res://sprites/ui/fonts/dogicapixel.ttf" id="1_7dcil"]
+[ext_resource type="Texture2D" uid="uid://b1jdulvprenwp" path="res://sprites/ui/speech-bubble.png" id="1_14nnm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yrtdx"]
+texture = ExtResource("1_14nnm")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_toln1"]
+texture = ExtResource("1_14nnm")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 8
+Label/fonts/font = ExtResource("1_7dcil")
+Label/styles/normal = SubResource("StyleBoxTexture_yrtdx")
+Panel/styles/panel = SubResource("StyleBoxTexture_toln1")

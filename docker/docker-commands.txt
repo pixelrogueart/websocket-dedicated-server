@@ -1,0 +1,13 @@
+docker build -t mmo-server .
+
+#execute docker image and listens to the ports locally
+docker run -d --name mmo-server -p 8080:8080/tcp mmo-server
+
+docker tag mmo-server gcr.io/<YOUR_PROJECT_ID>/mmo-server
+
+docker push gcr.io/<YOUR_PROJECT_ID>/mmo-server
+
+gcloud run deploy mmo-server --image gcr.io/<YOUR_PROJECT_ID>/mmo-server --platform managed --region <YOUR_REGION> --allow-unauthenticated
+
+
+gcloud run deploy mmo-server --image gcr.io/<YOUR_PROJECT_ID>/mmo-server --platform managed --region <YOUR_REGION> --allow-unauthenticated

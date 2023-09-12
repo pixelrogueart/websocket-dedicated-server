@@ -1,0 +1,128 @@
+#https://studio.asyncapi.com
+asyncapi: '2.6.0'
+info:
+  title: WebSocket Server
+  version: '1.0.0'
+  description: A websocket server to allow communication between peers dynamically.
+
+servers:
+  production:
+    url: wss://localhost:8080
+    protocol: ws
+
+channels:
+  actionHandler:
+    description: Channel for server.js.
+
+    publish:
+      operationId: onActionHandler
+      message:
+        name: actionHandler
+        title: Player Action Message
+        summary: Message that contains the action and data from the player.
+        payload:
+          type: object
+          required:
+            - action
+            - data
+          properties:
+            action:
+              type: string
+              description: The action to be executed.
+              enum: ['readyPlayer', 'receivePlayerState', 'broadcast']
+            data:
+              oneOf:
+                - $ref: '#/components/schemas/readyPlayerData'
+                - $ref: '#/components/schemas/receivePlayerStateData'
+                - $ref: '#/components/schemas/broadcast'
+
+  readyPlayer:
+    description: Channel to retrieve the peer data.
+
+    publish:
+      operationId: onReadyPlayer
+      message:
+        name: readyPlayer
+        title: Execute server action.
+        summary: Retrieve the peer data with dataHandler.js and send it back to the requester.
+        payload:
+          type: object
+          required:
+            - data
+          properties:
+            data:
+              $ref: '#/components/schemas/readyPlayerData'
+
+  receivePlayerState:
+    description: Channel for receiving player data and update the world state to keep all players synched.
+    publish:
+      operationId: onReceivePlayerState
+      message:
+        name: receivePlayerState
+        title: Execute server action.
+        summary: Sends the player state to stateProcessing.js.
+        payload:
+          type: object
+          required:
+            - action
+            - data
+          properties:
+            action:
+              type: string
+              enum: ['broadcast','receivePlayerState','readyPlayer']
+            data:
+              $ref: '#/components/schemas/broadcast'
+      
+  broadcast:
+    description: Channel to execute simple actions on the client.
+    publish:
+      operationId: onBroadcast
+      message:
+        name: broadcast
+        title: Execute server action.
+        summary: Broadcast message sent to all connected peers.
+        payload:
+          type: object
+          required:
+            - action
+            - data
+          properties:
+            action:
+              type: string
+              enum: ['broadcast','receivePlayerState','readyPlayer']
+            data:
+              $ref: '#/components/schemas/broadcast'
+
+components:
+  schemas:
+    readyPlayerData:
+      type: object
+      required:
+        - username
+      properties:
+        username:
+          type: string
+          description: The username of the player.
+
+    receivePlayerStateData:
+      type: object
+      required:
+        - playerState
+      properties:
+        playerState:
+          type: object
+          description: The state of the player.
+          additionalProperties: true
+
+    broadcast:
+      type: object
+      required:
+        - function
+      properties:
+        function:
+          type: string
+          description: Name of the function to be executed on the client side.
+        parameters:
+          type: object
+          additionalProperties: true
+          description: Parameters associated with the function.

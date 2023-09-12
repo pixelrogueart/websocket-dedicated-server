@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://5mfxltb3envu"]
+
+[ext_resource type="Texture2D" uid="uid://bs8uyjkp47av7" path="res://visual/particle.png" id="1_3vv88"]
+[ext_resource type="Script" path="res://assets/sfx/EffectPlayer.gd" id="1_vyn2a"]
+
+[sub_resource type="Curve" id="Curve_5s42h"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.497948, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="EffectPlayer" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vyn2a")
+
+[node name="particle" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+emitting = false
+amount = 32
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+randomness = 0.11
+lifetime_randomness = 0.03
+texture = ExtResource("1_3vv88")
+emission_shape = 1
+emission_sphere_radius = 9.26
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 152.81
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_5s42h")

@@ -1,0 +1,2 @@
+1. Place your database url at Database.gd
+2. Place your websocket server url at ServerHeader.gd

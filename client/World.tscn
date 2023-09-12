@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpraxhwm7ctf6"]
+
+[ext_resource type="PackedScene" uid="uid://c5xo2p1r7tn85" path="res://assets/ui/GUI.tscn" id="1_tx5yp"]
+[ext_resource type="Script" path="res://World.gd" id="1_y6c7k"]
+[ext_resource type="PackedScene" uid="uid://r7m68rsqb0up" path="res://assets/player/Player.tscn" id="2_mfk3m"]
+[ext_resource type="PackedScene" uid="uid://cb74mi0neqwj3" path="res://maps/Hub.tscn" id="4_psehb"]
+[ext_resource type="Texture2D" uid="uid://ythew865vnfn" path="res://sprites/grid.png" id="5_cva8y"]
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_y6c7k")
+
+[node name="Hub" parent="." instance=ExtResource("4_psehb")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("1_tx5yp")]
+
+[node name="Player" parent="." instance=ExtResource("2_mfk3m")]
+
+[node name="Peers" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(25, 25)
+scroll_base_offset = Vector2(5, 5)
+scroll_base_scale = Vector2(2, 2)
+scroll_limit_end = Vector2(100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+z_index = -2
+position = Vector2(64, 216)
+texture = ExtResource("5_cva8y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground"]
+z_index = -2
+position = Vector2(576, 216)
+texture = ExtResource("5_cva8y")

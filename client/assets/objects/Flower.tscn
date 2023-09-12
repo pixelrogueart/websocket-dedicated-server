@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://61cupao8rqcg"]
+
+[ext_resource type="Texture2D" uid="uid://cbw7wmo4w62av" path="res://sprites/tilesets/objects.png" id="1_3tyvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvewg"]
+size = Vector2(12, 5)
+
+[node name="Flower" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.5, -7.5)
+texture = ExtResource("1_3tyvg")
+region_enabled = true
+region_rect = Rect2(33, 48, 15, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_gvewg")

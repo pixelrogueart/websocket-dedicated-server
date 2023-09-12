@@ -1,0 +1,43 @@
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    width: 1080px;
+    padding: 10px 30px;
+    background-color: #daa300;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 200px;
+}
+
+.logoAlt {
+    margin-right: 200px;
+    font-size: 48px;
+    color: #fff;
+    transition: transform 0.3s;
+}
+.logoAlt:hover{
+    transform: scale(1.05); 
+}
+
+.navButtons {
+    display: flex;
+    gap: 20px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px; 
+    background-color: #151a18;
+    transition: transform 0.3s; 
+}
+
+.navLink:hover {
+    transform: scale(1.05);
+}
+

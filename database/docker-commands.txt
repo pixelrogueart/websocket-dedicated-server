@@ -1,0 +1,10 @@
+docker build -t database-server .
+
+#execute docker image and listens to the ports locally
+docker run -d --name database-server -p 8080:8080/tcp database-server
+
+docker tag database-server gcr.io/<YOUR_PROJECT_ID>/database-server
+
+docker push gcr.io/<YOUR_PROJECT_ID>/database-server
+
+gcloud run deploy database-server --image gcr.io/<YOUR_PROJECT_ID>/database-server --platform managed --region us-central1 --allow-unauthenticated

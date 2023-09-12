@@ -1,0 +1,477 @@
+[gd_scene load_steps=21 format=3 uid="uid://cftglfuliop4n"]
+
+[ext_resource type="Script" path="res://assets/peer/Peer.gd" id="1_yxklb"]
+[ext_resource type="Theme" uid="uid://dictf83vmdo2" path="res://assets/ui/themes/speech-bubble-theme.tres" id="2_opnxr"]
+[ext_resource type="Script" path="res://assets/player/Traits.gd" id="2_pfoyg"]
+[ext_resource type="Script" path="res://assets/ui/components/PeerSpeechBox.gd" id="3_5wmbd"]
+[ext_resource type="Shader" path="res://scripts/HitOpacity.gdshader" id="5_wtcoo"]
+[ext_resource type="Texture2D" uid="uid://cgrpi01wshgbw" path="res://sprites/character/body/fat/down.png" id="6_qu6wm"]
+[ext_resource type="Texture2D" uid="uid://bidkhbphi7bn5" path="res://sprites/character/traits/fat/down/eyes/1.png" id="7_fn0e6"]
+[ext_resource type="Texture2D" uid="uid://bhvalrotglj88" path="res://sprites/character/traits/fat/down/hairstyles/1.png" id="8_rslb4"]
+[ext_resource type="Texture2D" uid="uid://cddih1yxq8nr" path="res://sprites/character/traits/fat/down/mouths/1.png" id="9_yjkei"]
+[ext_resource type="Texture2D" uid="uid://cpo2owsxjjokc" path="res://sprites/character/traits/fat/down/shoes/1.png" id="10_rdtla"]
+[ext_resource type="Texture2D" uid="uid://bqj24ft8qb02b" path="res://sprites/character/traits/fat/down/top/1.png" id="11_vidca"]
+[ext_resource type="Texture2D" uid="uid://4swuwrcp5bl7" path="res://sprites/character/traits/fat/down/bottoms/1.png" id="12_un61p"]
+[ext_resource type="PackedScene" uid="uid://d0vael6aud428" path="res://assets/Tooltip.tscn" id="13_40ugn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewdcp"]
+radius = 5.09902
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p37wa"]
+resource_local_to_scene = true
+shader = ExtResource("5_wtcoo")
+shader_parameter/hit_opacity = 0.0
+
+[sub_resource type="Animation" id="Animation_hrv13"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Traits/body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Traits/eyes:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Traits/hairstyles:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Traits/mouths:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Traits/shoes:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Traits/top:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Traits/bottoms:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ydmc4"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Traits/body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Traits/eyes:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Traits/hairstyles:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Traits/mouths:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Traits/shoes:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Traits/top:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Traits/bottoms:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_x0qkk"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Traits/body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Traits/eyes:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Traits/hairstyles:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [6, 7, 8, 9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Traits/mouths:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Traits/shoes:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Traits/top:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Traits/bottoms:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_jupbx"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Traits/body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Traits/eyes:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Traits/hairstyles:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Traits/mouths:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Traits/shoes:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Traits/top:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Traits/bottoms:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfgwn"]
+_data = {
+"RESET": SubResource("Animation_hrv13"),
+"idle": SubResource("Animation_ydmc4"),
+"run": SubResource("Animation_x0qkk"),
+"walk": SubResource("Animation_jupbx")
+}
+
+[node name="Peer" type="CharacterBody2D"]
+texture_filter = 1
+collision_layer = 4
+input_pickable = true
+script = ExtResource("1_yxklb")
+
+[node name="SpeechBoxLabel" type="Label" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.784314)
+texture_filter = 1
+clip_contents = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -50.0
+offset_right = 9.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme = ExtResource("2_opnxr")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+script = ExtResource("3_5wmbd")
+
+[node name="Timer" type="Timer" parent="SpeechBoxLabel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ewdcp")
+
+[node name="Traits" type="Node2D" parent="."]
+position = Vector2(0, -6)
+script = ExtResource("2_pfoyg")
+
+[node name="body" type="Sprite2D" parent="Traits"]
+material = SubResource("ShaderMaterial_p37wa")
+position = Vector2(1, -11)
+texture = ExtResource("6_qu6wm")
+hframes = 10
+
+[node name="eyes" type="Sprite2D" parent="Traits"]
+material = SubResource("ShaderMaterial_p37wa")
+position = Vector2(1, -10)
+texture = ExtResource("7_fn0e6")
+hframes = 10
+
+[node name="hairstyles" type="Sprite2D" parent="Traits"]
+material = SubResource("ShaderMaterial_p37wa")
+position = Vector2(1, -10)
+texture = ExtResource("8_rslb4")
+hframes = 10
+
+[node name="mouths" type="Sprite2D" parent="Traits"]
+material = SubResource("ShaderMaterial_p37wa")
+position = Vector2(1, -11)
+texture = ExtResource("9_yjkei")
+hframes = 10
+
+[node name="shoes" type="Sprite2D" parent="Traits"]
+material = SubResource("ShaderMaterial_p37wa")
+position = Vector2(1, -11)
+texture = ExtResource("10_rdtla")
+hframes = 10
+
+[node name="top" type="Sprite2D" parent="Traits"]
+material = SubResource("ShaderMaterial_p37wa")
+position = Vector2(1, -11)
+texture = ExtResource("11_vidca")
+hframes = 10
+
+[node name="bottoms" type="Sprite2D" parent="Traits"]
+material = SubResource("ShaderMaterial_p37wa")
+position = Vector2(1, -11)
+texture = ExtResource("12_un61p")
+hframes = 10
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xfgwn")
+}
+
+[node name="Tooltip" parent="." instance=ExtResource("13_40ugn")]
+texture_filter = 1
+offset_top = -30.0
+offset_right = 9.0
+tooltip_text = ""
+
+[connection signal="timeout" from="SpeechBoxLabel/Timer" to="SpeechBoxLabel" method="_on_timer_timeout"]

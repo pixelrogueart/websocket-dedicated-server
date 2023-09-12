@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dtddyi2474xk"
+path="res://.godot/imported/footstep_grass (8).wav-cdeb5ebb0c73e0547598fc8e7583c44f.sample"
+
+[deps]
+
+source_file="res://sound/sfx/footstep_grass (8).wav"
+dest_files=["res://.godot/imported/footstep_grass (8).wav-cdeb5ebb0c73e0547598fc8e7583c44f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

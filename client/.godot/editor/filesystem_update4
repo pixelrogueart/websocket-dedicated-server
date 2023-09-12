@@ -1,0 +1,6 @@
+res://World.tscn
+res://assets/ui/themes/speech-bubble-theme.tres
+res://scripts/HitOpacity.gdshader
+res://assets/ui/themes/ui-theme.tres
+res://global/network/server/ServerHeader.gd
+res://global/network/database/Database.gd

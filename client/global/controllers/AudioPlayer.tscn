@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ufy5baf2hf1a"]
+
+[ext_resource type="Script" path="res://global/controllers/AudioPlayer.gd" id="1_h3jmb"]
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D"]
+autoplay = true
+script = ExtResource("1_h3jmb")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

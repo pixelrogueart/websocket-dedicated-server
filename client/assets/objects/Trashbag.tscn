@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfm3mtsm6sulm"]
+
+[ext_resource type="Texture2D" uid="uid://cbw7wmo4w62av" path="res://sprites/tilesets/objects.png" id="1_hiqeu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvewg"]
+size = Vector2(26, 9)
+
+[node name="Trashbag" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("1_hiqeu")
+region_enabled = true
+region_rect = Rect2(3, 85, 25, 23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_gvewg")

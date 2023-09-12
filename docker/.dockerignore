@@ -1,0 +1,11 @@
+# .dockerignore
+
+# Ignore node_modules
+node_modules
+
+# Ignore logs
+*.log
+
+# Ignore git related files
+.git
+.gitignore

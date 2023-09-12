@@ -1,0 +1,509 @@
+[gd_scene load_steps=24 format=3 uid="uid://c5xo2p1r7tn85"]
+
+[ext_resource type="Script" path="res://assets/ui/GUI.gd" id="1_0rf7o"]
+[ext_resource type="Script" path="res://assets/ui/states/StateManager.gd" id="1_054fu"]
+[ext_resource type="Script" path="res://assets/ui/screens/ScreenIntro.gd" id="2_8g4uv"]
+[ext_resource type="Script" path="res://assets/ui/states/StateIntro.gd" id="2_cjiiw"]
+[ext_resource type="Script" path="res://assets/ui/states/StateMenu.gd" id="3_1wdgo"]
+[ext_resource type="Texture2D" uid="uid://dl7lyf5ctak1u" path="res://sprites/ui/info-panel.png" id="3_cut2y"]
+[ext_resource type="Script" path="res://assets/ui/screens/ScreenMenu.gd" id="3_tdk21"]
+[ext_resource type="Script" path="res://assets/ui/states/StateRegister.gd" id="4_36phy"]
+[ext_resource type="Theme" uid="uid://bpfsvrsxwpgvb" path="res://assets/ui/themes/ui-theme.tres" id="4_ftw3x"]
+[ext_resource type="Script" path="res://assets/ui/screens/ScreenRegister.gd" id="4_g4qkw"]
+[ext_resource type="Script" path="res://assets/ui/states/StatePause.gd" id="5_dxt35"]
+[ext_resource type="Script" path="res://assets/ui/screens/ScreenPause.gd" id="5_fco3f"]
+[ext_resource type="Script" path="res://assets/ui/screens/ScreenPlay.gd" id="6_t4syb"]
+[ext_resource type="Script" path="res://assets/ui/states/StatePlay.gd" id="6_unm0c"]
+
+[sub_resource type="Animation" id="Animation_4rh0h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameNotifications:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(475.5, -32)]
+}
+
+[sub_resource type="Animation" id="Animation_gcv1v"]
+resource_name = "hide_notification"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameNotifications:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2.92817, 2.92817),
+"update": 0,
+"values": [Vector2(221.5, 8), Vector2(221.5, -32)]
+}
+
+[sub_resource type="Animation" id="Animation_g12ml"]
+resource_name = "show_notification"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameNotifications:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1.7411, 1.7411, 1.7411),
+"update": 0,
+"values": [Vector2(221.5, -32), Vector2(221.5, 16), Vector2(221.5, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrfte"]
+_data = {
+"RESET": SubResource("Animation_4rh0h"),
+"hide_notification": SubResource("Animation_gcv1v"),
+"show_notification": SubResource("Animation_g12ml")
+}
+
+[sub_resource type="Animation" id="Animation_f1ve2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextInput:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(159, 369)]
+}
+
+[sub_resource type="Animation" id="Animation_7lhvw"]
+resource_name = "hide_chat"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextInput:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(3.24901, 3.24901),
+"update": 0,
+"values": [Vector2(159, 297), Vector2(159, 369)]
+}
+
+[sub_resource type="Animation" id="Animation_0tghn"]
+resource_name = "show_chat"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextInput:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(3.24901, 3.24901, 3.24901),
+"update": 0,
+"values": [Vector2(159, 369), Vector2(159, 289), Vector2(159, 297)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2sxm"]
+_data = {
+"RESET": SubResource("Animation_f1ve2"),
+"hide_chat": SubResource("Animation_7lhvw"),
+"show_chat": SubResource("Animation_0tghn")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5eoq"]
+texture = ExtResource("3_cut2y")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[node name="GUI" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_0rf7o")
+
+[node name="NotificationTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176471, 0.109804, 0.109804, 1)
+
+[node name="NotificationAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nrfte")
+}
+
+[node name="Screens" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Intro" type="Control" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_8g4uv")
+
+[node name="Menu" type="Control" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_tdk21")
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0431373, 0.0431373, 1)
+
+[node name="Panel" type="Panel" parent="Screens/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -166.0
+offset_right = 212.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ftw3x")
+
+[node name="UserInput" type="LineEdit" parent="Screens/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -63.0
+offset_right = 85.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ftw3x")
+placeholder_text = "EMAIL"
+alignment = 1
+
+[node name="PasswordInput" type="LineEdit" parent="Screens/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -23.0
+offset_right = 85.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ftw3x")
+placeholder_text = "PASSWORD"
+alignment = 1
+secret = true
+
+[node name="LoginButton" type="Button" parent="Screens/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -47.0
+offset_right = 33.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_ftw3x")
+text = "LOGIN"
+
+[node name="RegisterButton" type="Button" parent="Screens/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -47.0
+offset_right = 163.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme = ExtResource("4_ftw3x")
+text = "CREATE ACCOUNT"
+
+[node name="Register" type="Control" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_g4qkw")
+
+[node name="ColorRect" type="ColorRect" parent="Screens/Register"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0431373, 0.0431373, 1)
+
+[node name="Panel" type="Panel" parent="Screens/Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -166.0
+offset_right = 212.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ftw3x")
+
+[node name="UserInput" type="LineEdit" parent="Screens/Register/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -63.0
+offset_right = 85.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ftw3x")
+placeholder_text = "USERNAME"
+alignment = 1
+
+[node name="PasswordInput" type="LineEdit" parent="Screens/Register/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -23.0
+offset_right = 85.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ftw3x")
+placeholder_text = "PASSWORD"
+alignment = 1
+secret = true
+
+[node name="EmailInput" type="LineEdit" parent="Screens/Register/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = 17.0
+offset_right = 85.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ftw3x")
+placeholder_text = "EMAIL"
+alignment = 1
+
+[node name="RegisterButton" type="Button" parent="Screens/Register/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -47.0
+offset_right = 33.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_ftw3x")
+text = "REGISTER"
+
+[node name="CancelButton" type="Button" parent="Screens/Register/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -47.0
+offset_right = -154.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_ftw3x")
+text = "BACK"
+
+[node name="Pause" type="Control" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_fco3f")
+
+[node name="Play" type="Control" parent="Screens"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_t4syb")
+
+[node name="TextInput" type="LineEdit" parent="Screens/Play"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = 9.0
+offset_right = 161.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_ftw3x")
+placeholder_text = "type here to speak"
+alignment = 1
+max_length = 30
+
+[node name="Tip" type="Label" parent="Screens/Play"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -23.0
+offset_right = 62.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_ftw3x")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "press 'enter' to talk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Animation" type="AnimationPlayer" parent="Screens/Play"]
+libraries = {
+"": SubResource("AnimationLibrary_t2sxm")
+}
+
+[node name="GameNotifications" type="Label" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 155.5
+offset_top = -32.0
+offset_right = 352.5
+offset_bottom = -9.0
+grow_horizontal = 2
+theme = ExtResource("4_ftw3x")
+theme_override_styles/normal = SubResource("StyleBoxTexture_l5eoq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("1_054fu")
+starting_state = NodePath("Menu")
+
+[node name="Intro" type="Node" parent="StateManager"]
+script = ExtResource("2_cjiiw")
+screenPath = NodePath("../../Screens/Intro")
+
+[node name="Menu" type="Node" parent="StateManager"]
+script = ExtResource("3_1wdgo")
+screenPath = NodePath("../../Screens/Menu")
+
+[node name="Register" type="Node" parent="StateManager"]
+script = ExtResource("4_36phy")
+screenPath = NodePath("../../Screens/Register")
+
+[node name="Pause" type="Node" parent="StateManager"]
+script = ExtResource("5_dxt35")
+screenPath = NodePath("../../Screens/Pause")
+
+[node name="Play" type="Node" parent="StateManager"]
+script = ExtResource("6_unm0c")
+screenPath = NodePath("../../Screens/Play")
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+
+[connection signal="timeout" from="NotificationTimer" to="." method="_on_timer_timeout"]
+[connection signal="text_submitted" from="Screens/Menu/Panel/UserInput" to="Screens/Menu" method="_on_user_input_text_submitted"]
+[connection signal="text_submitted" from="Screens/Menu/Panel/PasswordInput" to="Screens/Menu" method="_on_password_input_text_submitted"]
+[connection signal="pressed" from="Screens/Menu/Panel/LoginButton" to="Screens/Menu" method="_on_login_button_pressed"]
+[connection signal="pressed" from="Screens/Menu/Panel/RegisterButton" to="Screens/Menu" method="_on_register_button_pressed"]
+[connection signal="text_submitted" from="Screens/Register/Panel/UserInput" to="Screens/Register" method="_on_user_input_text_submitted"]
+[connection signal="text_submitted" from="Screens/Register/Panel/PasswordInput" to="Screens/Register" method="_on_password_input_text_submitted"]
+[connection signal="text_submitted" from="Screens/Register/Panel/EmailInput" to="Screens/Register" method="_on_password_input_2_text_submitted"]
+[connection signal="pressed" from="Screens/Register/Panel/RegisterButton" to="Screens/Register" method="_on_register_button_pressed"]
+[connection signal="pressed" from="Screens/Register/Panel/CancelButton" to="Screens/Register" method="_on_cancel_button_pressed"]
+[connection signal="text_submitted" from="Screens/Play/TextInput" to="Screens/Play" method="_on_text_input_text_submitted"]

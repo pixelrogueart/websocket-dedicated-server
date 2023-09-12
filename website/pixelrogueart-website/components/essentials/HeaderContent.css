@@ -1,0 +1,38 @@
+.contentContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    height: 10px;
+    width: 100%;
+    padding: 30px 30px;
+}
+.textLink:hover {
+    transform: scale(1.05); 
+}
+
+
+.navIcons {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    justify-content: flex-end;
+}
+
+
+.iconLink {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.iconLink:hover {
+    transform: scale(1.50);
+}
+
+.iconLink img {
+    width: 24px;
+    height: 24px;
+    fill: #323c39;
+}
+
+

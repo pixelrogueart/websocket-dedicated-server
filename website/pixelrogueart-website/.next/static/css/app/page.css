@@ -1,0 +1,187 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[3]!./components/essentials/Header.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    width: 1080px;
+    padding: 10px 30px;
+    background-color: #daa300;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 200px;
+}
+
+.logoAlt {
+    margin-right: 200px;
+    font-size: 48px;
+    color: #fff;
+    transition: transform 0.3s;
+}
+.logoAlt:hover{
+    transform: scale(1.05); 
+}
+
+.navButtons {
+    display: flex;
+    gap: 20px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px; 
+    background-color: #151a18;
+    transition: transform 0.3s; 
+}
+
+.navLink:hover {
+    transform: scale(1.05);
+}
+
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[3]!./components/essentials/HeaderContent.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+.contentContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    height: 10px;
+    width: 100%;
+    padding: 30px 30px;
+}
+.textLink:hover {
+    transform: scale(1.05); 
+}
+
+
+.navIcons {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    justify-content: flex-end;
+}
+
+
+.iconLink {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.iconLink:hover {
+    transform: scale(1.50);
+}
+
+.iconLink img {
+    width: 24px;
+    height: 24px;
+    fill: #323c39;
+}
+
+
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[3]!./components/essentials/Footer.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.footerContainer {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    width: 1080px;
+    padding: 10px 30px;
+    background-color: #b1afb1;
+    flex-shrink: 0;
+
+
+  }
+
+  .footerButton {
+    background-color: transparent; 
+    color: #fff;
+    border: 2px solid white;
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+
+.footerButton:hover {
+    transform: scale(1.05);
+}
+
+.footerIcon {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.footerText {
+    font-size: 16px;
+    color: #fff;
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[12].use[3]!./src/app/page.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.pageContainer {
+    height: 100vh; /* Cover the entire height of the viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+.textHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal alignment for child elements */
+    gap: 15px; /* Space between child elements */
+}
+
+.inputField {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 80%; /* You can adjust as per your design preference */
+    max-width: 400px; /* Prevents field from becoming too wide on large screens */
+}
+
+.submitButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* A basic dark grey, modify if needed */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+    background-color: #555; /* Slightly lighter shade for hover effect */
+}
+
+.emailMessage {
+    color: black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.retrievedMessage {
+    
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: black; 
+}
+

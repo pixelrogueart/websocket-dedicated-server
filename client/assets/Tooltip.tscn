@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0vael6aud428"]
+
+[ext_resource type="Theme" uid="uid://bpfsvrsxwpgvb" path="res://assets/ui/themes/ui-theme.tres" id="1_m6ssc"]
+[ext_resource type="Script" path="res://assets/Tooltip.gd" id="2_mq8ch"]
+
+[node name="Tooltip" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+tooltip_text = "Door"
+mouse_filter = 1
+theme = ExtResource("1_m6ssc")
+script = ExtResource("2_mq8ch")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

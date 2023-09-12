@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dnn4ms8bwd841"]
+
+[ext_resource type="Shader" path="res://scripts/HitOpacity.gdshader" id="1_5g4nm"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_5g4nm")
+shader_parameter/hit_opacity = 0.0
