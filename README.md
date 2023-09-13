@@ -75,7 +75,7 @@ node server
 ```
 
 ### Client
-**Description**: Godot 4.1 Project to connect with the database & server. [Live Preview](https://pixelrogueart.com/mmo-basic-setup)
+**Description**: Godot 4.1 Project to connect with the database & server. [Live Preview](https://pixelrogueart.com/mmo-example)
 
 **Usage**:
 - Run the project.godot inside the client folder. 
@@ -83,7 +83,7 @@ node server
 - In ServerHeader.gd, change the variable _server_url to the Websocket URL. If you're running locally, it will be: http://localhost:8080 or another port if you changed.
 
 ### Website
-**Description**: Website to allow the user to activate its account to be able to play. [Live Preview](https://pixelrogueart.com/mmo-confirm)
+**Description**: Website to allow the user to activate its account to be able to play. [Live Preview](https://pixelrogueart.com/confirm)
 
 **Usage**:
 - To install all libraries run the following command:
